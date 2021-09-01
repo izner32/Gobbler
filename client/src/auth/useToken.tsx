@@ -4,7 +4,7 @@
 */
 import React, { useState } from 'react'
 
-function useToken() {
+export function useToken() {
     const [token,setTokenInternal] = useState(
         localStorage.getItem("token") // default value of token is the one we got from the browser
     );
@@ -14,7 +14,7 @@ function useToken() {
         localStorage.setItem("token", newToken);
         setTokenInternal(newToken);
     }
-    
+    return [token,setToken]
 }
 
-export default useToken
+
