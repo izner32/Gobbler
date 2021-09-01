@@ -1,7 +1,6 @@
 /* 
 - grab the user's email and password and some additional infos from req.body 
 - create put api thats lets you add user's email and password to the database 
-    - connect to database [UNFINISHED]
     - check if the user exists already [UNFINISHED]
     - add additional security by salting and peppering the password 
         - for pepper, create an env file for creating secured keys 
@@ -29,9 +28,11 @@ export const signUpRoute = {
     handler: async (req,res) => {
         const { firstName, lastName, username, email, password } = req.body; // grabbing the info we would send to the database 
 
-        // connect to database 
-
         // check if the user exists 
+        const userExists = pool.query(); // idk how to query it correctly :(
+        if (userExists){
+            res.status(409); // return an error response
+        }
 
         // salt and pepper the password
         const salt = uuid(); // uuid generates a random key string 
