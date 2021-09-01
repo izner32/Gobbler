@@ -12,7 +12,7 @@ function Routes() {
                 <Route path = "">
                     {/* frontend page | landing page */}
                 </Route>
-                <PrivateRoute>
+                <PrivateRoute path="/newsfeed" exact> {/* remember that things we pass into private route gets passed into the route too */}
                     {/* authorized page | newsfeed */}
                 </PrivateRoute>
             </Switch>
