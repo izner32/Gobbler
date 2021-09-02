@@ -42,7 +42,7 @@ function Login() {
                             onChange={e => setPasswordValue(e.target.value)}
                             placeholder="password" />
                         <button
-                            disabled={!emailValue || !passwordValue}
+                            disabled={!emailValue || !passwordValue} // disable if the value of these two is blank 
                             onClick={onLogInClicked}>Log In</button> 
                         <button onClick={() => history.push('/signup')}>Create an account</button>
 
