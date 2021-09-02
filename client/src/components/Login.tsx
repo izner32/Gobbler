@@ -2,21 +2,22 @@ import React, { useState } from 'react'
 import { useHistory } from "react-router-dom";
 
 function Login() {
-    const { emailValue, setEmailValue } = useState("");
-    const { passwordValue, setPasswordValue } = useState("");
+    // setting an initial values for the inputs
+    const [ emailValue, setEmailValue ] = useState("");
+    const [ passwordValue, setPasswordValue ] = useState("");
 
-    const history = useHistory();
+    const history = useHistory(); // for redirecting user
 
+    // fetching login route when login button has been clicked 
     const onLogInClicked = async () => {
         const response = await fetch(`your url paste here`, {
+            method: 'POST',
             headers: {
-              Authorization: `Token ${API_TOKEN}`,
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
                 name: "user 1"
             })
-            method: 'POST',
           });
           const results = await response.json();
     }
@@ -43,7 +44,7 @@ function Login() {
                         <button
                             disabled={!emailValue || !passwordValue}
                             onClick={onLogInClicked}>Log In</button> 
-                        <button onClick={() => history.push('/signup')}>Don't have an account? Sign Up</button>
+                        <button onClick={() => history.push('/signup')}>Create an account</button>
 
                     </div>
                 </div>
