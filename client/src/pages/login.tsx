@@ -26,7 +26,7 @@ function Login() {
         <div>
             <div>
                 <div>
-                    <h1>Gobble your thought 250 characters a day</h1>
+                    <h1 className="text-7xl">Gobble your thought 250 characters a day</h1>
                 </div>
                 <div>
                     <div>
