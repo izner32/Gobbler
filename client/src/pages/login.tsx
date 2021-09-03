@@ -24,9 +24,9 @@ function Login() {
 
     return (
         <div>
-            <div>
-                <div>
-                    <h1 className="text-7xl">Gobble your thought 250 characters a day</h1>
+            <div className="grid grid-cols-2 h-screen">
+                <div className="bg-black">
+                    <h1 className="text-white font-Poppins">Gobble your thought 250 characters a day</h1>
                 </div>
                 <div>
                     <div>
