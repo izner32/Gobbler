@@ -36,34 +36,37 @@ function Signup() {
             <div className="grid grid-cols-12 h-screen">
                 <div className="hidden md:block col-span-5 bg-Turkey-500">
                     <h1 className="text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-white font-Poppins mt-12 ml-12 mr-12 leading-tight">Gobble<br/> your thoughts 250 characters per gobble</h1>
-                    <img className ="md:w-[30%] lg:w-72 absolute bottom-0 ml-[20%]" src="Turkey.svg" alt="Girl in a jacket"></img>
+                    <img className ="md:w-[30%] lg:w-72 absolute bottom-0 ml-[20%]" src="Turkey.svg" alt="Turkey"></img>
                 </div>
                 <div className="col-span-12 md:col-span-7 ">
                     <div className="m-28 md:ml-16 md:mr-16 lg:ml-20 lg:mr-20 xl:ml-24 xl:mr-24">
                         <h2 className="font-Poppins text-2xl md:text-2xl lg:text-3xl xl:text-4xl mb-6">Sign Up</h2>
                         <hr className="mb-6"></hr>
-                        <div className="mb-6">
+                        <div className="mb-6 relative">
                             <label className="block mb-2">Email</label>
+                            <img className ="absolute bottom-3 left-2" src="Email.svg" alt="Email"></img>
                             <input
                                 type="email"
-                                className="w-full p-2 appearance-none border-2 border-white rounded focus:outline-none focus:bg-white focus:border-Turkey-500"
+                                className="w-full p-2 appearance-none border-2 border-white rounded focus:outline-none focus:bg-white focus:border-Turkey-500 pl-12"
                                 value={emailValue}
                                 onChange={e => setEmailValue(e.target.value)}
                                 placeholder="someone@gmail.com" />
                         </div>
-                        <div className="mb-6">
+                        <div className="mb-6 relative">
                             <label className="block mb-2">Username</label>
+                            <img className ="absolute bottom-3 left-2" src="User.svg" alt="Username"></img>
                             <input
                                 type="text"
-                                className="w-full p-2 appearance-none border-2 border-white rounded focus:outline-none focus:bg-white focus:border-Turkey-500"
+                                className="w-full p-2 appearance-none border-2 border-white rounded focus:outline-none focus:bg-white focus:border-Turkey-500 pl-12"
                                 value={usernameValue}
-                                onChange={e => setEmailValue(e.target.value)}
+                                onChange={e => setUsernameValue(e.target.value)}
                                 placeholder="username" />
                         </div>
-                        <div className="mb-6">
+                        <div className="mb-6 relative">
                             <label className="block mb-2">Password</label>
+                            <img className ="absolute bottom-2 left-2" src="Lock.svg" alt="Password"></img>
                             <input
-                                className="w-full p-2 appearance-none border-2 border-white rounded focus:outline-none focus:bg-white focus:border-Turkey-500"
+                                className="w-full p-2 appearance-none border-2 border-white rounded focus:outline-none focus:bg-white focus:border-Turkey-500 pl-12"
                                 type="password"
                                 value={passwordValue}
                                 onChange={e => setPasswordValue(e.target.value)}
