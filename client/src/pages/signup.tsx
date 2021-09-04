@@ -71,11 +71,11 @@ function Signup() {
                         </div>
                         <div className="flex flex-col lg:flex-row">
                             <button
-                                className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 md:mr-6 mb-6 md:-mb-0 text-white bg-Turkey-500 rounded-md hover:bg-Turkey-600"
+                                className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 lg:mr-6 mb-6 lg:-mb-0 text-white bg-Turkey-500 rounded-md hover:bg-Turkey-600"
                                 disabled={!emailValue || !passwordValue} // disable if the value of these two is blank 
                                 onClick={onSignUpClicked}>Sign&nbsp;Up</button> 
                             <button 
-                                className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 md:mr-6 text-Turkey-500 hover:text-Turkey-800"
+                                className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 lg:mr-6 text-Turkey-500 hover:text-Turkey-800"
                                 onClick={() => router.push('/login')}>I already have an account</button>
                         </div>
                     </div>
