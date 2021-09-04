@@ -4,14 +4,15 @@ tailwind css customs
     - font-Poppins // custom font for poppins 
 */
 import React, { useState } from 'react'
-import { useHistory } from "react-router-dom";
+import { useRouter } from "next/router";
 
 function Signup() {
     // setting an initial values for the inputs
     const [ emailValue, setEmailValue ] = useState("");
+    const [ usernameValue, setUsernameValue ] = useState("");
     const [ passwordValue, setPasswordValue ] = useState("");
 
-    const history = useHistory(); // for redirecting user
+    const router = useRouter(); // for redirecting user
 
     // fetching login route when login button has been clicked 
     const onSignUpClicked = async () => {
@@ -39,7 +40,7 @@ function Signup() {
                 </div>
                 <div className="col-span-12 md:col-span-7 ">
                     <div className="m-28 md:ml-16 md:mr-16 ">
-                        <h2 className="font-Poppins text-2xl md:text-2xl lg:text-3xl xl:text-4xl mb-6">Sign In</h2>
+                        <h2 className="font-Poppins text-2xl md:text-2xl lg:text-3xl xl:text-4xl mb-6">Sign Up</h2>
                         <hr className="mb-6"></hr>
                         <div className="mb-6">
                             <label className="block font">Email</label>
@@ -49,6 +50,15 @@ function Signup() {
                                 value={emailValue}
                                 onChange={e => setEmailValue(e.target.value)}
                                 placeholder="someone@gmail.com" />
+                        </div>
+                        <div className="mb-6">
+                            <label className="block font">Username</label>
+                            <input
+                                type="text"
+                                className="block w-auto"
+                                value={emailValue}
+                                onChange={e => setEmailValue(e.target.value)}
+                                placeholder="username" />
                         </div>
                         <div className="mb-6">
                             <label className="block">Password</label>
@@ -63,10 +73,10 @@ function Signup() {
                             <button
                                 className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 md:mr-6 mb-6 md:-mb-0 text-white bg-Turkey-500 rounded-md"
                                 disabled={!emailValue || !passwordValue} // disable if the value of these two is blank 
-                                onClick={onSignUpClicked}>Log&nbsp;In</button> 
+                                onClick={onSignUpClicked}>Sign&nbsp;Up</button> 
                             <button 
                                 className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 md:mr-6 text-Turkey-500 hover:text-white hover:bg-Turkey-500 hover:rounded-md"
-                                onClick={() => history.push('/signup')}>Create an account</button>
+                                onClick={() => router.push('/login')}>I already have an account</button>
                         </div>
                     </div>
                 </div>
