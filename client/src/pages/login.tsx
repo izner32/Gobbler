@@ -4,14 +4,14 @@ tailwind css customs
     - font-Poppins // custom font for poppins 
 */
 import React, { useState } from 'react'
-import { useHistory } from "react-router-dom";
+import { useRouter } from "next/router";
 
 function Login() {
     // setting an initial values for the inputs
     const [ emailValue, setEmailValue ] = useState("");
     const [ passwordValue, setPasswordValue ] = useState("");
 
-    const history = useHistory(); // for redirecting user
+    const router = useRouter(); // for redirecting user
 
     // fetching login route when login button has been clicked 
     const onLogInClicked = async () => {
@@ -29,7 +29,6 @@ function Login() {
 
     /* TODO: 
             - study styling input fields 
-            - make it responsive
     */
     return (
         <div>
@@ -67,7 +66,7 @@ function Login() {
                                 onClick={onLogInClicked}>Log&nbsp;In</button> 
                             <button 
                                 className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 md:mr-6 text-Turkey-500 hover:text-white hover:bg-Turkey-500 hover:rounded-md"
-                                onClick={() => history.push('/signup')}>Create an account</button>
+                                onClick={() => router.push('/signup')}>Create an account</button>
                         </div>
                     </div>
                 </div>
