@@ -28,18 +28,15 @@ function Signup() {
           const results = await response.json();
     }
 
-    /* TODO: 
-            - study styling input fields 
-    */
     return (
         <div>
             <div className="grid grid-cols-12 h-screen">
-                <div className="hidden md:block col-span-5 bg-Turkey-500">
+                <div className="hidden md:block col-span-5 bg-Turkey-500 relative">
                     <h1 className="text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-white font-Poppins mt-12 ml-12 mr-12 leading-tight">Gobble<br/> your thoughts 250 characters per gobble</h1>
-                    <img className ="md:w-[30%] lg:w-72 absolute bottom-0 ml-[20%]" src="Turkey.svg" alt="Turkey"></img>
+                    <img className ="w-52 lg:w-60 absolute bottom-0 -right-4" src="Turkey.svg" alt="Turkey"></img>
                 </div>
                 <div className="col-span-12 md:col-span-7 ">
-                    <div className="m-28 md:ml-16 md:mr-16 lg:ml-20 lg:mr-20 xl:ml-24 xl:mr-24">
+                    <div className="m-24">
                         <h2 className="font-Poppins text-2xl md:text-2xl lg:text-3xl xl:text-4xl mb-6">Sign Up</h2>
                         <hr className="mb-6"></hr>
                         <div className="mb-6 relative">
@@ -72,7 +69,7 @@ function Signup() {
                                 onChange={e => setPasswordValue(e.target.value)}
                                 placeholder="password" />
                         </div>
-                        <div className="flex flex-col md:flex-row">
+                        <div className="flex flex-col lg:flex-row">
                             <button
                                 className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 md:mr-6 mb-6 md:-mb-0 text-white bg-Turkey-500 rounded-md hover:bg-Turkey-600"
                                 disabled={!emailValue || !passwordValue} // disable if the value of these two is blank 
