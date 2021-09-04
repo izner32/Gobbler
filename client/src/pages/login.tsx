@@ -34,13 +34,13 @@ function Login() {
     return (
         <div>
             <div className="grid grid-cols-12 h-screen">
-                <div className="col-span-5 bg-Turkey-500">
-                    <h1 className="text-white font-Poppins text-6xl mt-12 ml-12 mr-12 leading-tight">Gobble<br/> your thoughts 250 characters per gobble</h1>
-                    <img className ="absolute bottom-0 ml-[20%]" src="Turkey.svg" alt="Girl in a jacket" width="300" height="300"></img>
+                <div className="hidden md:block col-span-5 bg-Turkey-500">
+                    <h1 className="text-4xl md:text-4xl lg:text-5xl xl:text-6xl text-white font-Poppins mt-12 ml-12 mr-12 leading-tight">Gobble<br/> your thoughts 250 characters per gobble</h1>
+                    <img className ="md:w-[30%] lg:w-72 absolute bottom-0 ml-[20%]" src="Turkey.svg" alt="Girl in a jacket"></img>
                 </div>
-                <div className="col-span-7">
-                    <div className="m-28">
-                        <h2 className="font-Poppins text-4xl mb-6">Sign In</h2>
+                <div className="col-span-12 md:col-span-7 ">
+                    <div className="m-28 md:ml-16 md:mr-16 ">
+                        <h2 className="font-Poppins text-2xl md:text-2xl lg:text-3xl xl:text-4xl mb-6">Sign In</h2>
                         <hr className="mb-6"></hr>
                         <div className="mb-6">
                             <label className="block font">Email</label>
@@ -60,12 +60,14 @@ function Login() {
                                 onChange={e => setPasswordValue(e.target.value)}
                                 placeholder="password" />
                         </div>
-                        <div className="flex">
+                        <div className="flex flex-col md:flex-row">
                             <button
-                                className="p-2 pr-6 pl-6 mr-6 text-white bg-Turkey-500 rounded-md"
+                                className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 md:mr-6 mb-6 md:-mb-0 text-white bg-Turkey-500 rounded-md"
                                 disabled={!emailValue || !passwordValue} // disable if the value of these two is blank 
-                                onClick={onLogInClicked}>Log In</button> 
-                            <button onClick={() => history.push('/signup')}>Create an account</button>
+                                onClick={onLogInClicked}>Log&nbsp;In</button> 
+                            <button 
+                                className="text-sm md:text-sm lg:text-base xl:text-lg p-2 pr-6 pl-6 md:mr-6 text-Turkey-500 hover:text-white hover:bg-Turkey-500 hover:rounded-md"
+                                onClick={() => history.push('/signup')}>Create an account</button>
                         </div>
                     </div>
                 </div>
