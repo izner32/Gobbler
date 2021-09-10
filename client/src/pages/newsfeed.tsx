@@ -1,4 +1,12 @@
+/*
+- create states for posts 
+- create a function that handles the resizing of input post field 
+    - been wasting a lot of time on this one only to discover there's an npm package for this 
+    - lesson learned: always look for npm package first when implementing a feature
+
+*/
 import React, {useState} from 'react'
+import TextareaAutosize from 'react-textarea-autosize';
 
 function newsfeed() {
     const [ postValue, setPostValue ] = useState("");
@@ -6,6 +14,16 @@ function newsfeed() {
     const onPostClicked = async() => {
 
     }
+
+    // auto resizing field
+    // const useStyles = theme => ({
+    //     textField: {
+    //       marginLeft: theme.spacing(1),
+    //       marginRight: theme.spacing(1),
+    //       border: '1px solid red',
+    //     },
+    //   }
+    // );
 
 
     return (
@@ -19,12 +37,12 @@ function newsfeed() {
             <div className="">
                 <div className="relative border rounded-lg w-96 shadow-md ml-4">
                     <img className ="absolute bottom-3 left-3" src="Email.svg" alt="Email"></img>
-                    <input
-                        type="email"
-                        className="block whitespace-normal break-words w-64 p-2 appearance-none border-2 border-white rounded focus:outline-none focus:bg-white focus:border-Turkey-0 pl-12"
+                    <TextareaAutosize
+                        className="resize-none overflow-hidden whitespace-normal break-words w-64 p-2 appearance-none border-2 border-white rounded focus:outline-none focus:bg-white focus:border-Turkey-0 pl-12"
                         value={postValue}
                         onChange={e => setPostValue(e.target.value)}
-                        placeholder="What's on your mind?" />
+                        placeholder="What's on your mind?"
+                        />
                     <button
                         className="absolute bottom-2.5 right-3 pl-5 pr-5 text-white bg-Turkey-500 rounded-md hover:bg-Turkey-600"
                         disabled={!postValue} 
@@ -33,16 +51,27 @@ function newsfeed() {
                 </div>
 
                 {/* this is how posts shall look like */}
-                <div>
-                    <div>
-                        <img></img>
-                        <p></p>
-                        <p></p>
+                <div className="m-16">
+                    <div className="flex mb-4">
+                        <img className ="mr-8 h-20 w-20 object-cover rounded-[50%]" src="Renz.jpg" alt="Renz" ></img>
+                        <div>
+                            <p className="">@Renz</p>
+                            <p className="">Dec 21, 2012</p>
+                        </div>
                     </div>
-                    <div>
-                    <hr></hr>
-                    <p></p>
-                    
+                    <div className="">
+                        <hr></hr>
+                        <p className="py-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum deserunt, totam soluta assumenda suscipit repellat odio libero illo magni minus?</p>
+                        <div className="flex gap-x-16">
+                            <div className="flex items-center gap-x-4">
+                                <img className =" h-4 w-4" src="Heart.svg" alt="Renz" ></img>
+                                <p className="text-gray-400">200k</p>
+                            </div>
+                            <div className="flex items-center gap-x-4">
+                                <img className =" h-4 w-4" src="Message.svg" alt="Renz" ></img>
+                                <p className="text-gray-400">2k</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
