@@ -1,18 +1,25 @@
-/*
-- npm install pg for connecting to postgres
-- specify necessary info
-- export pool to be able to query
-*/
+// import { createConnection } from 'typeorm';
 
-const Pool = require('pg').Pool;
+// export const dbConnection = async () => {
+// 	try {
+// 		await createConnection({
+// 			type: 'postgres',
+// 			host: 'localhost',
+// 			port: 5432,
+// 			username: 'renz',
+// 			password: undefined,
+// 			database: 'typeorm',
+// 			entities: [Gobbles, User, UserInfo],
+// 			synchronize: true,
+// 		});
+// 		console.log('Connected to Postgres');
+// 	} catch (error) {
+// 		console.error(error);
+// 		throw new Error('Unable to connect to db');
+// 	}
+// };
 
-export const pool = new Pool({
-    user: '',
-    host: 'localhost',
-    database:  '',
-    password: '',
-    port:5432,
-  })
+
 
 
 
