@@ -6,15 +6,12 @@ import {
 } from 'typeorm';
 
 @Entity()
-export class Person extends BaseEntity {
+export class User extends BaseEntity {
 	@PrimaryGeneratedColumn()
 	id: number;
 
 	@Column()
-	first_name: string;
-
-	@Column()
-	last_name: string;
+	username: string;
 
 	@Column({
 		unique: true,
@@ -38,6 +35,4 @@ export class Person extends BaseEntity {
 	@Column({
 	})
 	verificationString: string;
-
-
 }
