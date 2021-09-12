@@ -7,6 +7,7 @@
 */
 import React, {useState} from 'react'
 import TextareaAutosize from 'react-textarea-autosize';
+import Link from 'next/link'
 
 function newsfeed() {
     const [ postValue, setPostValue ] = useState("");
@@ -15,22 +16,11 @@ function newsfeed() {
 
     }
 
-    // auto resizing field
-    // const useStyles = theme => ({
-    //     textField: {
-    //       marginLeft: theme.spacing(1),
-    //       marginRight: theme.spacing(1),
-    //       border: '1px solid red',
-    //     },
-    //   }
-    // );
-
-
     return (
         <div className="">
             <nav className="">
-                <a className="" href="/html/">HTML</a> |
-                <a className="" href="/css/">CSS</a> |
+                <img className ="w-8 h-8" src="" alt="Logo"></img>
+                <Link href="/css/">Home</Link> |
                 <a className="" href="/js/">JavaScript</a> 
                 <a className="" href="/jquery/">jQuery</a>
             </nav>
