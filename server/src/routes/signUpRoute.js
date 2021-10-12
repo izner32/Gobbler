@@ -1,7 +1,7 @@
 /* 
 - grab the user's email and password and some additional infos from req.body 
 - create put api thats lets you add user's email and password to the database 
-    - check if the user exists already [UNFINISHED]
+    - check if the user exists already 
     - add additional security by salting and peppering the password 
         - for pepper, create an env file for creating secured keys 
     - hash the user's password before sending it into the database 
@@ -29,7 +29,12 @@ export const signUpRoute = {
         const { firstName, lastName, username, email, password } = req.body; // grabbing the info we would send to the database 
 
         // check if the user exists 
-        const userExists = pool.query(); // idk how to query it correctly :(
+        const userExists = pool.query(
+            `SELECT * 
+            FROM table 
+            WHERE email = ${email}`
+        ); // idk how to query it correctly :(
+
         if (userExists){
             res.status(409); // return an error response
         }
@@ -64,7 +69,7 @@ export const signUpRoute = {
             }
         );
 
-        // grabbing the user's id 
+        // grabbing the user's id | grabbing the latest's row from the db 
         const newId = pool.query(`SELECT curvval(user_id_seq)`); // curvval is for grabbing the last newly inserted id 
 
         // creating a jwt that we would store to the user's browser to keep them logged in 

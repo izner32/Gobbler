@@ -1,6 +1,6 @@
 /*
 - npm install pg for connecting to postgres
-- specify necessary info
+- specify necessary info to connect to the db 
 - export pool to be able to query
 */
 
