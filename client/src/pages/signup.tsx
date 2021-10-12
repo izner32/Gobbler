@@ -5,6 +5,8 @@ tailwind css customs
 */
 import React, { useState } from 'react'
 import { useRouter } from "next/router";
+import axios from "axios";
+
 
 function Signup() {
     // setting an initial values for the inputs
@@ -16,13 +18,15 @@ function Signup() {
 
     // fetching login route when login button has been clicked 
     const onSignUpClicked = async () => {
-        const response = await fetch(`your url paste here`, {
+        const response = await fetch(`localhost:5432/api/signup`, {
             method: 'POST',
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                name: "user 1"
+                username: "user 1",
+                email: "user 1",
+                password: "user 1",
             })
           });
           const results = await response.json();

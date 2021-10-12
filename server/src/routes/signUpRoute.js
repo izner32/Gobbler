@@ -24,9 +24,9 @@ import { pool } from "../db"; // for querying to postgres
 // creatign an object, send this object to the server file
 export const signUpRoute = {
     path: "/api/signup",
-    method: "put", 
+    method: "post", 
     handler: async (req,res) => {
-        const { firstName, lastName, username, email, password } = req.body; // grabbing the info we would send to the database 
+        const { username, email, password } = req.body; // grabbing the info we would send to the database 
 
         // check if the user exists 
         const userExists = pool.query(
@@ -47,6 +47,8 @@ export const signUpRoute = {
         const passwordHash = await bcrypt.hash(salt + password + pepper, 10); // encrypt it into 10 digits 
 
         // default values for new users  
+        const firstName =``;
+        const lastName = ``;
         const image = ``;
         const isVerified = false;
 
