@@ -4,7 +4,8 @@
 - export pool to be able to query
 */
 
-const Pool = require('pg').Pool;
+import * as pg from 'pg';
+const { Pool } = pg;
 
 export const pool = new Pool({
     user: process.env.POSTGRES_USER,

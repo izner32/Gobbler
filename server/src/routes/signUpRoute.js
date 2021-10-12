@@ -18,7 +18,7 @@
 */
 import bcrypt from "bcrypt"; // for hashing password  
 import { v4 as uuid } from 'uuid'; // for salting the password | salting and peppering is for adding additional security
-import { pool } from "../db"; // for querying to postgres
+import { pool } from "../db.js"; // for querying to postgres
 
 
 // creatign an object, send this object to the server file
