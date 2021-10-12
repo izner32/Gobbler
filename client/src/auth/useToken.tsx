@@ -14,7 +14,7 @@ export function useToken() {
         localStorage.setItem("token", newToken);
         setTokenInternal(newToken);
     }
-    return [token,setToken]
+    return {token,setToken}
 }
 
 

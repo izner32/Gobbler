@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-signUpRoute();
+app[signUpRoute.method](signUpRoute.path, signUpRoute.handler);
 // iterate thru all of the routes 
 // routes.forEach( (route) => {
 //     app[route.method](route.path, route.handler);

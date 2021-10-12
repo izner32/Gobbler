@@ -6,9 +6,12 @@ tailwind css customs
 import React, { useState } from 'react'
 import { useRouter } from "next/router";
 import axios from "axios";
-
+import { useToken } from "../auth/useToken";
 
 function Signup() {
+    // setting up token hook which is to be used for storing jwt to localstorage
+    const {token, setToken} = useToken();
+
     // setting an initial values for the inputs
     const [ emailValue, setEmailValue ] = useState("");
     const [ usernameValue, setUsernameValue ] = useState("");
@@ -18,18 +21,15 @@ function Signup() {
 
     // fetching login route when login button has been clicked 
     const onSignUpClicked = async () => {
-        const response = await fetch(`localhost:5432/api/signup`, {
-            method: 'POST',
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: "user 1",
-                email: "user 1",
-                password: "user 1",
-            })
-          });
-          const results = await response.json();
+        const response = await axios.post('/api/signup', {
+            username: usernameValue,
+            email: emailValue,
+            password: passwordValue,
+        });
+
+        const token = response.data;
+        setToken(token);
+        router.push('/newsfeed');
     }
 
     return (
