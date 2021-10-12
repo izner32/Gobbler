@@ -7,11 +7,9 @@
 const Pool = require('pg').Pool;
 
 export const pool = new Pool({
-    user: '',
-    host: 'localhost',
-    database:  '',
-    password: '',
-    port:5432,
+    user: process.env.POSTGRES_USER,
+    host: process.env.POSTGRES_HOST,
+    port:process.env.POSTGRES_PORT,
   })
 
 

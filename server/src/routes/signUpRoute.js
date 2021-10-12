@@ -32,8 +32,8 @@ export const signUpRoute = {
         const userExists = pool.query(
             `SELECT * 
             FROM table 
-            WHERE email = ${email}`
-        ); // idk how to query it correctly :(
+            WHERE email = $1`,[email]
+        ); 
 
         if (userExists){
             res.status(409); // return an error response
@@ -46,23 +46,23 @@ export const signUpRoute = {
         // hash the user's password - this is an async function 
         const passwordHash = await bcrypt.hash(salt + password + pepper, 10); // encrypt it into 10 digits 
 
-        // default info for user 
-        const startingInfo = {
-            image = "",
-        }
+        // default values for new users  
+        const image = ``;
+        const isVerified = false;
 
         // inserting into database - haven't setup database yet so imma use generic name such as tableName 
-        pool.query(
-            `INSERT INTO tableName(firstname, lastname, username, address, email, password, startingInfo, isVerified)
+        const insertDB = await pool.query(
+            `INSERT INTO User(first_name, last_name, username, email, password, image, is_verified)
             VALUES(
-                ${firstName}, 
-                ${lastName}, 
-                ${username}, 
-                ${email}, 
-                ${password}, 
-                ${startingInfo},
-                "false" // isVerified = false, because user needs to verify their email first 
-            )`,
+                $1,
+                $2,
+                $3,
+                $4,
+                $5,
+                $6,
+                $7
+            )
+            RETURNING id`, [firstName, lastName, username, email, passwordHash, image, isVerified ],
             (err, res) => {
                 console.log(err, res);
                 pool.end();
@@ -70,13 +70,13 @@ export const signUpRoute = {
         );
 
         // grabbing the user's id | grabbing the latest's row from the db 
-        const newId = pool.query(`SELECT curvval(user_id_seq)`); // curvval is for grabbing the last newly inserted id 
+        const newId = insertDB.rows[0].id;
 
         // creating a jwt that we would store to the user's browser to keep them logged in 
         jwt.sign({
             // use these info for the basis of jwt token
             id: newId,
-            email,
+            email: email,
         },
         process.env.JWT_SECRET, // signing token with a jwt secret from our .env file 
         {
